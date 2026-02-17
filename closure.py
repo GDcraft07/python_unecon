@@ -1,6 +1,7 @@
 def make_multiplier(n):
+    const = 52
     def multiplier(x):
-        return x * n
+        return const * x * n
     
     return multiplier
 
