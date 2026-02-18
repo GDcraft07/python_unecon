@@ -155,6 +155,27 @@ def archi(text):
 text = input()
 print(archi(text))
 
+# 11
+
+def isValid(line):
+    current_sum = 0
+
+    for i in range(0, len(line)):
+        if i % 2 == 0:
+            digit = 2 * int(line[i])
+            if digit > 9:
+                digit -= 9
+            current_sum += digit
+        else:
+            current_sum += int(line[i])
+    if current_sum % 10 == 0:
+        return "Valid"
+    return "Invalid"
+
+line = input()
+
+print(isValid(line))
+
 # 12
 
 def isPrime(number):
@@ -177,24 +198,3 @@ def allPrime(number):
 number = int(input())
 
 print(allPrime(number))
-
-# 11
-
-def isValid(line):
-    current_sum = 0
-
-    for i in range(0, len(line)):
-        if i % 2 == 0:
-            digit = 2 * int(line[i])
-            if digit > 9:
-                digit -= 9
-            current_sum += digit
-        else:
-            current_sum += int(line[i])
-    if current_sum % 10 == 0:
-        return "Valid"
-    return "Invalid"
-
-line = input()
-
-print(isValid(line))

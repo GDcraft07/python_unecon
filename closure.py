@@ -13,15 +13,3 @@ print(double(5))
 print(triple(5))
 
 print(make_multiplier(5)(13))
-
-
-def funk(n):
-    return n
-
-lst = [1, 2, 3]
-
-res = funk(lst)
-print(lst)
-
-lst[0] = 0
-print(lst)
