@@ -16,27 +16,27 @@
 
 # # nonlocal
 
-def count_calls():
-    counter = 0
+# def count_calls():
+#     counter = 0
 
-    def closure(print_result=False):
-        nonlocal counter
+#     def closure(print_result=False):
+#         nonlocal counter
 
-        if print_result:
-            return counter
+#         if print_result:
+#             return counter
         
-        counter += 1
+#         counter += 1
         
-        return counter
+#         return counter
     
-    return closure
+#     return closure
 
 
-counter = count_calls()
+# counter = count_calls()
 
-for _ in range(5):
-    counter()
+# for _ in range(5):
+#     counter()
 
 
-print(counter(True))
-print(counter())
+# print(counter(True))
+# print(counter())
