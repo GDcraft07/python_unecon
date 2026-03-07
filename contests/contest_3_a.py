@@ -1,130 +1,135 @@
-# # 1
+# 1
 
-# import collections
+import collections
 
-# def number_1(line):
-#     return dict(collections.Counter("".join(line.split(" "))))
+def number_1(line):
+    return dict(collections.Counter("".join(line.split(" "))))
 
-# line = input()
-# print(number_1(line))
+try:
+    line = input()
+    print(number_1(line))
 
-# # 2
+except EOFError:
+    print({})
 
-# from collections import Counter
+# 2
 
-# def number_2(line_1, line_2):
-#     line_1 = Counter(line_1)
-#     line_2 = Counter(line_2)
+from collections import Counter
 
-#     flag = False
-#     if len(line_1) == len(line_2):
-#         flag = True
-#         for i in line_1:
-#             if i not in line_2 or line_1[i] != line_2[i]:
-#                 flag = False
+def number_2(line_1, line_2):
+    line_1 = Counter(line_1)
+    line_2 = Counter(line_2)
+
+    flag = False
+    if len(line_1) == len(line_2):
+        flag = True
+        for i in line_1:
+            if i not in line_2 or line_1[i] != line_2[i]:
+                flag = False
     
-#     return flag
+    return flag
 
-# inputs = input()
 
-# if inputs == "":
-#     print(True)
+try:
+    inputs = input()
 
-# else:
-#     print(number_2(*inputs.split()))
+    print(number_2(*inputs.split()))
 
-# # 3
+except TypeError:
+    print(True)
 
-# from collections import defaultdict
+# 3
 
-# def number_3(line):
-#     lists = eval(line)
-#     print(lists)
-#     def_dict = defaultdict(list)
-#     for i in lists:
-#         def_dict[i[0]] += [i[1]]
+from collections import defaultdict
+
+def number_3(line):
+    lists = eval(line)
+    print(lists)
+    def_dict = defaultdict(list)
+    for i in lists:
+        def_dict[i[0]] += [i[1]]
     
-#     return dict(def_dict)
+    return dict(def_dict)
 
 
-# line = input()
+line = input()
 
-# print(number_3(line))
+print(number_3(line))
 
-# # 4
+# 4
 
-# from collections import defaultdict
+from collections import defaultdict
 
-# def number_4(line):
-#     lists = eval(line)
-#     def_dict = defaultdict(int)
+def number_4(line):
+    lists = eval(line)
+    def_dict = defaultdict(int)
 
-#     for i in lists:
-#         def_dict[i] += 1
+    for i in lists:
+        def_dict[i] += 1
     
-#     return dict(def_dict)
+    return dict(def_dict)
 
 
-# line = input()
+line = input()
 
-# print(number_4(line))
+print(number_4(line))
 
-# # 5
+# 5
 
-# from collections import Counter
+from collections import Counter
 
-# def number_5(warehouse, sold):
-#     warehouse = Counter(eval(warehouse))
-#     sold = eval(sold)
+def number_5(warehouse, sold):
+    warehouse = Counter(eval(warehouse))
+    sold = eval(sold)
 
-#     for i in sold:
-#         if i in warehouse:
-#             warehouse[i] -= 1
+    for i in sold:
+        if i in warehouse:
+            warehouse[i] -= 1
 
-#             if warehouse[i] == 0:
-#                 del warehouse[i]
+            if warehouse[i] == 0:
+                del warehouse[i]
     
-#     return dict(warehouse)
+    return dict(warehouse)
 
-# warehouse = input()
-# sold = input()
+warehouse = input()
+sold = input()
 
-# print(number_5(warehouse, sold))
+print(number_5(warehouse, sold))
 
 
-# # 6
+# 6
 
-# from collections import Counter
+from collections import Counter
 
-# def number_6(line):
-#     lists = eval(line)
+def number_6(line):
+    lists = eval(line)
 
-#     return Counter(lists).most_common(3)
+    return Counter(lists).most_common(3)
 
-# line = input()
+line = input()
 
-# print(number_6(line))
+print(number_6(line))
 
-# # 7
+# 7
 
-# from collections import defaultdict
+from collections import defaultdict
 
-# def numebr_7(line):
-#     lists = eval(line)
-#     def_dict = defaultdict(set)
+def numebr_7(line):
+    lists = eval(line)
+    def_dict = defaultdict(set)
 
-#     for i in lists:
-#         def_dict[i[0]].add(i[1])
-#         def_dict[i[1]].add(i[0])
+    for i in lists:
+        def_dict[i[0]].add(i[1])
+        def_dict[i[1]].add(i[0])
     
-#     for i in def_dict:
-#         def_dict[i] = set(sorted(def_dict[i]))
-#     return dict(def_dict)
+    for i in def_dict:
+        def_dict[i] = set(sorted(def_dict[i]))
+    return dict(def_dict)
 
 
-# line = input()
+line = input()
 
-# print(numebr_7(line))
+print(numebr_7(line))
 
 
 # 8
