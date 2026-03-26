@@ -1,104 +1,104 @@
-# # 1
+# 1
 
-# def count_args(*args):
-#     return len(args)
+def count_args(*args):
+    return len(args)
 
 
-# args = input().split()
+args = input().split()
 
-# print(count_args(*args))
+print(count_args(*args))
 
-# # 2
+# 2
 
-# def sq_sum(*args):
-#     answer = 0
+def sq_sum(*args):
+    answer = 0
 
-#     for i in args:
-#         answer += (i ** 2)
+    for i in args:
+        answer += (i ** 2)
     
-#     return answer
+    return answer
 
 
-# args = map(float, input().split())
+args = map(float, input().split())
 
-# print(sq_sum(*args))
+print(sq_sum(*args))
 
 
-# # 3
+# 3
 
-# def mean(*args):
-#     sums = 0
-#     count = 0
-#     for i in args:
-#         try:
-#             sums += float(i)
-#             count += 1
-#         except ValueError:
-#             pass
+def mean(*args):
+    sums = 0
+    count = 0
+    for i in args:
+        try:
+            sums += float(i)
+            count += 1
+        except ValueError:
+            pass
     
-#     if count:
-#         return sums / count
-#     return 0
+    if count:
+        return sums / count
+    return 0
 
-# args = input().split()
+args = input().split()
 
-# print(mean(*args))
+print(mean(*args))
 
-# # 4
+# 4
 
-# numbers = list(map(int, input().split()))
+numbers = list(map(int, input().split()))
 
-# count = 0
+count = 0
 
-# for i in range(len(numbers)):
-#     for j in range(i + 1, len(numbers)):
-#         if numbers[i] == numbers[j]:
-#             count += 1
+for i in range(len(numbers)):
+    for j in range(i + 1, len(numbers)):
+        if numbers[i] == numbers[j]:
+            count += 1
 
-# print(count)
+print(count)
 
-# # 5
+# 5
 
-# ip = list(map(int, input().split("."))); print("YES") if len(ip) == 4 and all(map(lambda x: 0 <= x <= 255, ip)) else print("NO")
+ip = list(map(int, input().split("."))); print("YES") if len(ip) == 4 and all(map(lambda x: 0 <= x <= 255, ip)) else print("NO")
 
-# # 6
+# 6
 
-# print("NO") if "01" in "".join(map(lambda x: bin(int(x))[2:].zfill(8), input().split("."))) else print("YES")
+print("NO") if "01" in "".join(map(lambda x: bin(int(x))[2:].zfill(8), input().split("."))) else print("YES")
 
-# # 7
+# 7
 
-# big_then_zero = []
-# zeros = []
+big_then_zero = []
+zeros = []
 
-# for i in range(int(input())):
-#     number = int(input())
-#     if number < 0:
-#         print(number)
-#     elif number == 0:
-#         zeros += [number]
-#     else:
-#         big_then_zero += [number]
+for i in range(int(input())):
+    number = int(input())
+    if number < 0:
+        print(number)
+    elif number == 0:
+        zeros += [number]
+    else:
+        big_then_zero += [number]
 
-# print("\n".join(map(str, zeros)))
+print("\n".join(map(str, zeros)))
 
-# print("\n".join(map(str, big_then_zero)))
+print("\n".join(map(str, big_then_zero)))
 
-# # 8
+# 8
 
-# line = input().split("-"); print("YES") if (all(map(lambda x: all([i.isdigit() for i in x]), line)) and ((len(line) == 3 and len(line[0]) == 3 and len(line[1]) == 3 and len(line[2]) == 4)) or (len(line) == 4 and line[0] == "7" and len(line[1]) == 3 and len(line[2]) == 3 and len(line[3]) == 4)) else print("NO")
+line = input().split("-"); print("YES") if (all(map(lambda x: all([i.isdigit() for i in x]), line)) and ((len(line) == 3 and len(line[0]) == 3 and len(line[1]) == 3 and len(line[2]) == 4)) or (len(line) == 4 and line[0] == "7" and len(line[1]) == 3 and len(line[2]) == 3 and len(line[3]) == 4)) else print("NO")
 
-# # 9
+# 9
 
-# def isPrime(number):
-#     if number < 2:
-#         return False
-#     for i in range(2, int(number ** 0.5) + 1):
-#         if number % i == 0:
-#             return False
+def isPrime(number):
+    if number < 2:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
     
-#     return True
+    return True
 
-# a, b = map(int, input().split()); print("\n".join(map(str, [i for i in range(a, b + 1) if isPrime(i)])))
+a, b = map(int, input().split()); print("\n".join(map(str, [i for i in range(a, b + 1) if isPrime(i)])))
 
 # 10
 
