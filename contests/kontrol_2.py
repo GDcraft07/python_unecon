@@ -1,96 +1,96 @@
-# # 1
+# 1
 
-# def number_1(line, number):
-#     answer = [[] for _ in range(number)]
+def number_1(line, number):
+    answer = [[] for _ in range(number)]
 
-#     for i in range(len(line)):
-#         answer[i % number].append(line[i])
+    for i in range(len(line)):
+        answer[i % number].append(line[i])
 
-#     return answer
+    return answer
 
 
-# print(number_1(input().split(), int(input())))
+print(number_1(input().split(), int(input())))
 
-# # 2
+# 2
 
-# def number_2(number):
-#     a, b, c = 1, 1, 1
-#     lst = []
+def number_2(number):
+    a, b, c = 1, 1, 1
+    lst = []
 
-#     for _ in range(number):
-#         lst += [a]
-#         a, b, c = b, c, a + b + c
+    for _ in range(number):
+        lst += [a]
+        a, b, c = b, c, a + b + c
     
-#     return lst
+    return lst
 
 
-# print(" ".join(map(str, number_2(int(input())))))
+print(" ".join(map(str, number_2(int(input())))))
 
 
-# # 3
+# 3
 
-# def number_3(a, b, c):
-#     x0 = -b / (2 * a)
-#     y0 = (4 * a * c - (b ** 2)) / (4 * a)
+def number_3(a, b, c):
+    x0 = -b / (2 * a)
+    y0 = (4 * a * c - (b ** 2)) / (4 * a)
 
-#     return f"({x0:.1f}, {y0:.1f})"
+    return f"({x0:.1f}, {y0:.1f})"
 
-# print(number_3(float(input()), float(input()), float(input())))
+print(number_3(float(input()), float(input()), float(input())))
 
 
-# # 4
+# 4
 
-# from itertools import permutations
+from itertools import permutations
 
-# def number_4(line):
-#     count = 0
+def number_4(line):
+    count = 0
 
-#     for i in set(permutations(line)):
-#         word = ''.join(i)
+    for i in set(permutations(line)):
+        word = ''.join(i)
         
-#         if word.index('Г') > word.index('А') and word.index('Г') > word.index('И'):
-#             count += 1
+        if word.index('Г') > word.index('А') and word.index('Г') > word.index('И'):
+            count += 1
 
-#     return count
+    return count
 
-# print(number_4(input()))
+print(number_4(input()))
 
 
-# # 5
+# 5
 
-# from itertools import product
+from itertools import product
 
-# def number_5(line):
-#     all_digits = list(set(line))
+def number_5(line):
+    all_digits = list(set(line))
 
-#     count = 0
+    count = 0
 
-#     for i in product(all_digits, repeat=12):
-#         if "55" not in "".join(i) and i[0] != "0":
-#             count += 1
+    for i in product(all_digits, repeat=12):
+        if "55" not in "".join(i) and i[0] != "0":
+            count += 1
         
-#     return count
+    return count
 
 
-# print(number_5(input()))
+print(number_5(input()))
 
 
-# # 6
+# 6
 
-# from itertools import product
-
-
-# def number_6(number_1, number_2):
-#     count_tail = 0
-
-#     for i in product(['И', 'Н', 'А'], repeat=(number_1 - 4)):
-#         if i.count('Н') >= number_2:
-#             count_tail += 1
-
-#     return 24 * count_tail
+from itertools import product
 
 
-# print(number_6(*map(int, input().split())))
+def number_6(number_1, number_2):
+    count_tail = 0
+
+    for i in product(['И', 'Н', 'А'], repeat=(number_1 - 4)):
+        if i.count('Н') >= number_2:
+            count_tail += 1
+
+    return 24 * count_tail
+
+
+print(number_6(*map(int, input().split())))
 
 # 7
 
