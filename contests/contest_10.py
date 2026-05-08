@@ -155,15 +155,3 @@
 #     result.append(memory[word_count[i]])
 
 # print("".join(result))
-
-answer = "2,4"
-
-start = 2.4
-count = 0
-while start < 100:
-    answer += "x1,3"
-    start *= 1.3
-    count += 1
-
-print(count)
-print(f"{answer}={start:.4f}")
