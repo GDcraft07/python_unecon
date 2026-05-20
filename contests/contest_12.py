@@ -1,115 +1,114 @@
-# # 1
+# 1
 
-# import hashlib
+import hashlib
 
-# def hash_password(password):
-#     return hashlib.sha256(password.encode("utf-8")).hexdigest()
+def hash_password(password):
+    return hashlib.sha256(password.encode("utf-8")).hexdigest()
 
-# # 2
+# 2
 
-# import hashlib
+import hashlib
 
-# def verify_password(password, hash):
-#     return hashlib.sha256(password.encode("utf-8")).hexdigest() == hash
+def verify_password(password, hash):
+    return hashlib.sha256(password.encode("utf-8")).hexdigest() == hash
 
-# # 3
+# 3
 
-# import hashlib
+import hashlib
 
-# def hash_with_salt(password, salt):
-#     return hashlib.sha256((password + salt).encode("utf-8")).hexdigest()
-
-
-# # 4
-
-# import hashlib
-
-# def generate_salt_from_number(n, length=16):
-#     return hashlib.sha256(f"{n}".encode('utf-8')).hexdigest()[:length]
-
-# # 5
-
-# import hashlib
-
-# def hash_with_unique_salt(password, user_id):
-#     return (hashlib.sha256((password +  hashlib.sha256(f"{user_id}".encode('utf-8')).hexdigest()[:16]).encode("utf-8")).hexdigest()[:16], hashlib.sha256(f"{user_id}".encode('utf-8')).hexdigest()[:16])
-
-# print(hash_with_unique_salt("password", 1)[0][:16])
+def hash_with_salt(password, salt):
+    return hashlib.sha256((password + salt).encode("utf-8")).hexdigest()
 
 
-# # 6
+# 4
 
-# import hashlib
+import hashlib
 
-# def verify_with_salt(password, hash_value, salt):
-#     return hashlib.sha256((password + salt).encode("utf-8")).hexdigest() == hash_value
+def generate_salt_from_number(n, length=16):
+    return hashlib.sha256(f"{n}".encode('utf-8')).hexdigest()[:length]
 
-# # 7
+# 5
 
-# import hashlib
+import hashlib
 
-
-# def add_user(users, username, password, user_id):
-#     salt = hashlib.sha256(f"{user_id}".encode("utf-8")).hexdigest()[:16]
-#     hash = hashlib.sha256((password + salt).encode("utf-8")).hexdigest()
-#     users[username] = {"hash": hash, "salt": salt}
-
-#     return users
+def hash_with_unique_salt(password, user_id):
+    return (hashlib.sha256((password +  hashlib.sha256(f"{user_id}".encode('utf-8')).hexdigest()[:16]).encode("utf-8")).hexdigest()[:16], hashlib.sha256(f"{user_id}".encode('utf-8')).hexdigest()[:16])
 
 
-# def check_user(users, username, password):
-#     try:
-#         return users[username]["hash"] == hashlib.sha256((password + users[username]["salt"]).encode("utf-8")).hexdigest()
-#     except:
-#         return False
 
-# # 8
+# 6
 
-# import hashlib
+import hashlib
 
-# def hash_with_iterations(password, salt, iterations=1000):
-#     return hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), iterations).hex()
+def verify_with_salt(password, hash_value, salt):
+    return hashlib.sha256((password + salt).encode("utf-8")).hexdigest() == hash_value
+
+# 7
+
+import hashlib
 
 
-# # 9
+def add_user(users, username, password, user_id):
+    salt = hashlib.sha256(f"{user_id}".encode("utf-8")).hexdigest()[:16]
+    hash = hashlib.sha256((password + salt).encode("utf-8")).hexdigest()
+    users[username] = {"hash": hash, "salt": salt}
 
-# import hashlib
+    return users
 
-# def slow_hash(password, iterations=10000):
-#     password = password.encode("utf-8")
 
-#     for _ in range(iterations):
-#         password = hashlib.sha256(password).digest()
+def check_user(users, username, password):
+    try:
+        return users[username]["hash"] == hashlib.sha256((password + users[username]["salt"]).encode("utf-8")).hexdigest()
+    except:
+        return False
+
+# 8
+
+import hashlib
+
+def hash_with_iterations(password, salt, iterations=1000):
+    return hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), iterations).hex()
+
+
+# 9
+
+import hashlib
+
+def slow_hash(password, iterations=10000):
+    password = password.encode("utf-8")
+
+    for _ in range(iterations):
+        password = hashlib.sha256(password).digest()
     
-#     return password.hex()
+    return password.hex()
 
 
-# # 10
+# 10
 
-# def secure_compare(a, b):
-#     if len(a) != len(b):
-#         return False
+def secure_compare(a, b):
+    if len(a) != len(b):
+        return False
     
-#     result = 0
+    result = 0
 
-#     for i, j in zip(a, b):
-#         result |= ord(i) ^ ord(j)
+    for i, j in zip(a, b):
+        result |= ord(i) ^ ord(j)
     
-#     return result == 0
+    return result == 0
 
-# # 11
+# 11
 
-# import itertools
-# import hashlib
+import itertools
+import hashlib
 
 
-# def find_string_by_hash(target_hash, max_length=3):
-#     for j in range(1, max_length + 1):    
-#         for i in itertools.product("abc", repeat=j):
-#             if hashlib.sha256("".join(i).encode("utf-8")).hexdigest() == target_hash:
-#                 return "".join(i)
+def find_string_by_hash(target_hash, max_length=3):
+    for j in range(1, max_length + 1):    
+        for i in itertools.product("abc", repeat=j):
+            if hashlib.sha256("".join(i).encode("utf-8")).hexdigest() == target_hash:
+                return "".join(i)
     
-#     return None
+    return None
 
 
 # 12
@@ -125,7 +124,6 @@ def process_auth(commands):
     for command in commands:
         command = command.split()
 
-        print(commands[0])
         if command[0] == "register":
             if command[1] in book:
                 results += ["User already exists"]
@@ -144,14 +142,3 @@ def process_auth(commands):
                 results += ["Wrong username or password"]
         
     return results
-
-
-commands = [
-    "register alice pass123",
-    "register alice pass123",
-    "login alice pass123",
-    "login alice wrong",
-    "login bob pass123"
-]
-for res in process_auth(commands):
-    print(res)
